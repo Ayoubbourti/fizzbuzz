@@ -17,4 +17,8 @@ test {
 	testLogging {
 		events "passed", "skipped", "failed"
 	}
+	dependencies {
+		testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1' // ou la version que vous utilisez
+		testImplementation 'org.assertj:assertj-core:3.24.2'
+	}
 }
