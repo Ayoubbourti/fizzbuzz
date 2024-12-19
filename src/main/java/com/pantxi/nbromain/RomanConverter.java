@@ -1,13 +1,13 @@
-package nombres;
+package com.pantxi.nbromain;
+
 import java.util.Arrays;
 import java.util.List;
 
-public class ArabicRomanNumerals {
+public class RomanConverter {
 
 
     static enum RomanLiteral {
         L(50),
-        XLIX(49),
         XL(40),
         X(10),
         IX(9),
@@ -22,7 +22,6 @@ public class ArabicRomanNumerals {
         }
 
         public static List<RomanLiteral> literalsDecrementOrder() {
-
             return Arrays.asList(RomanLiteral.values());
         }
     }
@@ -49,15 +48,13 @@ public class ArabicRomanNumerals {
     }
 
 
-
     public String convert(int i) {
         if (i < 1 || i > 50) {
             throw new IllegalArgumentException("Number must be between 1 and 50");
         }
 
         ResultatBuilder resultat = new ResultatBuilder(i);
-        for (RomanLiteral literal :
-                RomanLiteral.literalsDecrementOrder()) {
+        for (RomanLiteral literal : RomanLiteral.literalsDecrementOrder()) {
             resultat.compute(literal);
         }
         return resultat.format();
